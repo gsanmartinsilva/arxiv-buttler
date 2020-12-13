@@ -40,13 +40,13 @@ for cat in cfg.categories:
     print(f"Processing {cat}...")
     r = arxiv.query(query=f"cat:{cat}",
                     id_list=[],
-                    max_results=3,
+                    max_results=50,
                     start = 0,
                     sort_by="lastUpdatedDate",
                     sort_order="descending",
                     prune=True,
                     iterative=False,
-                    max_chunk_results=100)
+                    max_chunk_results=500)
     totalPapers[cat] = r
     print(f"{len(r)} papers retrieved in category {cat}\n")
     

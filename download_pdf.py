@@ -40,7 +40,6 @@ for n, paper in enumerate(r):
     arxiv.download(paper, dirpath=cfg.txtPath, slugify=paper_to_filename)
     # create text
     cmd = f"pdftotext {os.path.join(cfg.txtPath, filename+'.pdf')} {os.path.join(cfg.txtPath, filename+'.txt')}"
-    print(cmd)
     try:
         os.system(cmd)
     except:
