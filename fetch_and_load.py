@@ -40,7 +40,7 @@ for cat in cfg.categories:
     print(f"Processing {cat}...")
     r = arxiv.query(query=f"cat:{cat}",
                     id_list=[],
-                    max_results=50,
+                    max_results=1000,
                     start = 0,
                     sort_by="lastUpdatedDate",
                     sort_order="descending",
@@ -73,5 +73,5 @@ else:
     db['df_papers'] = pd.concat([df_old, df_new])
     print(f"Papers uploaded to db: {len(df_new)}")
 
-with open(cfg.dbPath, 'wb') as handle:
+with open(cfg.dbPath, 'wb+') as handle:
     pickle.dump(db, handle, protocol=4)
